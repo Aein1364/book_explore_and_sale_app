@@ -3,7 +3,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../gen/assets.gen.dart';
-import '../model/categoriesListModel.dart';
+import '../model/PageViewModel.dart';
 import 'MyColors.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {

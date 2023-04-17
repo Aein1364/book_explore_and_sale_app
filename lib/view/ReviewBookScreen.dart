@@ -30,6 +30,7 @@ class _ReviewBookScreenState extends State<ReviewBookScreen> {
               padding: const EdgeInsets.fromLTRB(21, 10, 21, 50),
               child: Column(
                 children: [
+                  //app bar
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -64,6 +65,7 @@ class _ReviewBookScreenState extends State<ReviewBookScreen> {
                   const SizedBox(
                     height: 32,
                   ),
+                  //poster
                   SizedBox(
                       width: double.infinity,
                       height: 212,
@@ -79,6 +81,7 @@ class _ReviewBookScreenState extends State<ReviewBookScreen> {
                       const SizedBox(
                         width: 10,
                       ),
+                      //book info and rating
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -123,6 +126,7 @@ class _ReviewBookScreenState extends State<ReviewBookScreen> {
                   const SizedBox(
                     height: 30,
                   ),
+                  //book description and author info and reviews
                   Row(
                     children: [
                       GestureDetector(
@@ -207,6 +211,7 @@ class _ReviewBookScreenState extends State<ReviewBookScreen> {
                   const SizedBox(
                     height: 20,
                   ),
+                  //book description
                   Text(
                     '''Lorem ipsum dolor sit amet consectetur. Faucibus tellus bibendum egestas dui facilisis vitae porttitor. Tristique est ipsum proin vestibulum lacus orci. Non ipsum sapien velit vitae magna quam. Cursus tempor nulla imperdiet tortor habitant arcu. Eu venenatis diam facilisis eu leo pellentesque quam ullamcorper malesuada. Facilisis diam mattis justo vel feugiat sagittis tortor urna. Arcu aliquam pellentesque lorem elit neque gravida. Bibendum bibendum feugiat facilisi viverra vitae tortor scelerisque facilisis orci.Lorem ipsum dolor sit amet consectetur. Faucibus tellus bibendum egestas dui facilisis vitae porttitor. Tristique est ipsum proin vestibulum lacus orci. Non ipsum sapien velit vitae magna quam. Cursus tempor nulla imperdiet tortor habitant arcu. Eu venenatis diam facilisis eu leo pellentesque quam ullamcorper malesuada. Facilisis diam mattis justo vel feugiat sagittis tortor urna. Arcu aliquam pellentesque lorem elit neque gravida. Bibendum bibendum feugiat facilisi viverra vitae tortor scelerisque facilisis orci.''',
                     style: textTheme.labelMedium!.copyWith(
@@ -221,6 +226,7 @@ class _ReviewBookScreenState extends State<ReviewBookScreen> {
               ),
             ),
           ),
+          //bottom navigation bar
           Positioned(
             bottom: 0,
             left: 0,
@@ -242,6 +248,7 @@ class _ReviewBookScreenState extends State<ReviewBookScreen> {
                   selectedIndex = index;
                 });
               }),
+          //add to cart button
           Positioned(
             bottom: 115,
             left: 0,
