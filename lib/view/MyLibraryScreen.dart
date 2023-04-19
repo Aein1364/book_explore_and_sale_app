@@ -9,8 +9,8 @@ import '../model/LibraryModel.dart';
 import '../model/WishListModel.dart';
 
 class MyLibraryScreen extends StatelessWidget {
-  const MyLibraryScreen({super.key});
-
+  const MyLibraryScreen({super.key, required this.globalKey});
+  final GlobalKey<ScaffoldState> globalKey;
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -27,27 +27,53 @@ class MyLibraryScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Assets.img.icons.menu.image(width: 24, height: 24),
+                  GestureDetector(
+                      onTap: () {
+                        globalKey.currentState!.openDrawer();
+                      },
+                      child:
+                          Assets.img.icons.menu.image(width: 24, height: 24)),
                   const SizedBox(
                     width: 17,
                   ),
-                  Container(
-                    alignment: Alignment.centerRight,
+                  SizedBox(
                     height: 36,
                     width: 212,
-                    decoration: BoxDecoration(
-                        color: const Color(0xffF6F5FA),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: Assets.img.icons.search.image(width: 24, height: 24),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(18)),
+                          filled: true,
+                          fillColor: const Color(0xffF6F5FA),
+                          suffixIcon: const Icon(
+                            Icons.search,
+                            color: Colors.grey,
+                            size: 25,
+                          )),
+                    ),
                   ),
-                  const SizedBox(
-                    width: 27,
+                  SizedBox(
+                    width: 42,
+                    height: 42,
+                    child: IconButton(
+                      highlightColor: Colors.black.withOpacity(.01),
+                      splashRadius: 20,
+                      onPressed: () {},
+                      icon:
+                          Assets.img.icons.vector.image(width: 28, height: 28),
+                    ),
                   ),
-                  Assets.img.icons.vector.image(width: 28, height: 28),
-                  const SizedBox(
-                    width: 9,
-                  ),
-                  Assets.img.icons.bell.image(width: 27, height: 29),
+                  SizedBox(
+                    width: 45,
+                    height: 45,
+                    child: IconButton(
+                      highlightColor: Colors.black.withOpacity(.01),
+                      splashRadius: 20,
+                      onPressed: () {},
+                      icon: Assets.img.icons.bell.image(width: 27, height: 29),
+                    ),
+                  )
                 ],
               ),
             ),

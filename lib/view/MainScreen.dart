@@ -15,6 +15,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  final globalKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -24,12 +25,47 @@ class _MainScreenState extends State<MainScreen> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        key: globalKey,
+        drawer: Container(
+          width: MediaQuery.of(context).size.width * .8,
+          height: MediaQuery.of(context).size.height,
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'Item 1',
+                  style: textTheme.titleLarge,
+                ),
+                const Divider(
+                  color: Colors.black,
+                ),
+                Text(
+                  'Item 2',
+                  style: textTheme.titleLarge,
+                ),
+              ],
+            ),
+          ),
+        ),
         body: Stack(
           children: [
             Positioned.fill(
                 child: IndexedStack(
               index: selectedIndex,
-              children: const [MyLibraryScreen(), CategoriesScreen()],
+              children: [
+                MyLibraryScreen(
+                  globalKey: globalKey,
+                ),
+                CategoriesScreen(
+                  globalKey: globalKey,
+                )
+              ],
             )),
             MyBottomNavigationBar(
               textTheme: textTheme,

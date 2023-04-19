@@ -8,8 +8,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../gen/assets.gen.dart';
 
 class CategoriesScreen extends StatefulWidget {
-  const CategoriesScreen({super.key});
-
+  const CategoriesScreen({super.key, required this.globalKey});
+  final GlobalKey<ScaffoldState> globalKey;
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
@@ -29,12 +29,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 12, 24, 19),
+              padding: const EdgeInsets.fromLTRB(24, 12, 14, 19),
               //appbar
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Assets.img.icons.menu.image(width: 24, height: 24),
+                  GestureDetector(
+                      onTap: () {
+                        widget.globalKey.currentState!.openDrawer();
+                      },
+                      child:
+                          Assets.img.icons.menu.image(width: 24, height: 24)),
                   const SizedBox(
                     width: 17,
                   ),
@@ -48,7 +53,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                 borderRadius: BorderRadius.circular(18)),
                             filled: true,
                             fillColor: const Color(0xffF6F5FA),
-                            suffixIcon: Icon(
+                            suffixIcon: const Icon(
                               Icons.search,
                               color: Colors.grey,
                               size: 25,
@@ -57,11 +62,27 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   const SizedBox(
                     width: 27,
                   ),
-                  Assets.img.icons.vector.image(width: 28, height: 28),
-                  const SizedBox(
-                    width: 9,
+                  SizedBox(
+                    width: 42,
+                    height: 42,
+                    child: IconButton(
+                      highlightColor: Colors.black.withOpacity(.01),
+                      splashRadius: 20,
+                      onPressed: () {},
+                      icon:
+                          Assets.img.icons.vector.image(width: 28, height: 28),
+                    ),
                   ),
-                  Assets.img.icons.bell.image(width: 27, height: 29),
+                  SizedBox(
+                    width: 45,
+                    height: 45,
+                    child: IconButton(
+                      highlightColor: Colors.black.withOpacity(.01),
+                      splashRadius: 20,
+                      onPressed: () {},
+                      icon: Assets.img.icons.bell.image(width: 27, height: 29),
+                    ),
+                  ),
                 ],
               ),
             ),
