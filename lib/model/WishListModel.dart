@@ -39,4 +39,12 @@ List<WishListModel> wishListBooks = [
       title: 'Father of the Rain',
       author: 'Lily King',
       image: Assets.img.images.fatherOfTheRain.image()),
+  WishListModel(
+      title: 'Leaving Time',
+      author: 'Jodi Picoult',
+      image: Assets.img.images.jodiPicoult.image()),
+  WishListModel(
+      title: 'Silent Scream ',
+      author: 'Angela Marsons',
+      image: Assets.img.images.silentScream.image()),
 ];

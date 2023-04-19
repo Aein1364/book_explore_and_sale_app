@@ -95,37 +95,49 @@ class MyLibraryScreen extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      DottedBorder(
-                        borderType: BorderType.RRect,
-                        radius: const Radius.circular(5),
-                        dashPattern: const [2, 2],
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 153,
-                            width: 117,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.add,
-                                  color: SolidColors.secondaryColor,
-                                  size: 24,
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  'Discover More',
-                                  style: textTheme.labelMedium!.apply(
+                      InkWell(
+                        onTap: () {},
+                        splashColor: Colors.black.withOpacity(.01),
+                        child: DottedBorder(
+                            borderType: BorderType.RRect,
+                            radius: const Radius.circular(5),
+                            dashPattern: const [2, 2],
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll(Colors.white),
+                                  overlayColor: MaterialStateProperty.all(
+                                      Colors.black.withOpacity(.03)),
+                                  fixedSize: MaterialStatePropertyAll(
+                                      const Size(117, 153))),
+                              onPressed: () {},
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.add,
                                     color: SolidColors.secondaryColor,
+                                    size: 24,
                                   ),
-                                )
-                              ],
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Text(
+                                    'Discover More',
+                                    style: textTheme.labelMedium!.apply(
+                                      color: SolidColors.secondaryColor,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                            // Container(
+                            //   alignment: Alignment.center,
+                            //   height: 153,
+                            //   width: 117,
+                            //   child:
+                            // ),
                             ),
-                          ),
-                        ),
                       ),
                     ],
                   )

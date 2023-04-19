@@ -19,23 +19,28 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return SafeArea(
-        child: Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-              child: IndexedStack(
-            index: selectedIndex,
-            children: const [MyLibraryScreen(), CategoriesScreen()],
-          )),
-          MyBottomNavigationBar(
-            textTheme: textTheme,
-            ontap: (int index) {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-          )
-        ],
+        child: GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Positioned.fill(
+                child: IndexedStack(
+              index: selectedIndex,
+              children: const [MyLibraryScreen(), CategoriesScreen()],
+            )),
+            MyBottomNavigationBar(
+              textTheme: textTheme,
+              ontap: (int index) {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+            )
+          ],
+        ),
       ),
     ));
   }

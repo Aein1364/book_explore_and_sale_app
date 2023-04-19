@@ -38,15 +38,22 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   const SizedBox(
                     width: 17,
                   ),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    height: 36,
-                    width: 212,
-                    decoration: BoxDecoration(
-                        color: const Color(0xffF6F5FA),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: Assets.img.icons.search.image(width: 24, height: 24),
-                  ),
+                  SizedBox(
+                      height: 36,
+                      width: 212,
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(18)),
+                            filled: true,
+                            fillColor: const Color(0xffF6F5FA),
+                            suffixIcon: Icon(
+                              Icons.search,
+                              color: Colors.grey,
+                              size: 25,
+                            )),
+                      )),
                   const SizedBox(
                     width: 27,
                   ),
