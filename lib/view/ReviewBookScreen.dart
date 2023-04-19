@@ -82,44 +82,51 @@ class _ReviewBookScreenState extends State<ReviewBookScreen> {
                         width: 10,
                       ),
                       //book info and rating
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Dust Jacket',
-                            style: textTheme.titleLarge,
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'By Pisco Pirinto',
-                            style: textTheme.labelMedium!.copyWith(
-                                fontWeight: FontWeight.w700, fontSize: 13),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              Icon(Icons.star,
-                                  color: Colors.amber[600], size: 15),
-                              Icon(Icons.star,
-                                  color: Colors.amber[600], size: 15),
-                              Icon(Icons.star,
-                                  color: Colors.amber[600], size: 15),
-                              Icon(Icons.star,
-                                  color: Colors.amber[600], size: 15),
-                              Icon(Icons.star,
-                                  color: Colors.amber[600], size: 15),
-                              Text(
-                                '| 1,500 Reads',
-                                style: textTheme.titleSmall!.copyWith(
-                                    color: Colors.black.withOpacity(.25)),
-                              )
-                            ],
-                          )
-                        ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Dust Jacket',
+                              style: textTheme.titleLarge,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'By Pisco Pirinto',
+                              style: textTheme.labelMedium!.copyWith(
+                                  fontWeight: FontWeight.w700, fontSize: 13),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              children: [
+                                Icon(Icons.star,
+                                    color: Colors.amber[600], size: 15),
+                                Icon(Icons.star,
+                                    color: Colors.amber[600], size: 15),
+                                Icon(Icons.star,
+                                    color: Colors.amber[600], size: 15),
+                                Icon(Icons.star,
+                                    color: Colors.amber[600], size: 15),
+                                Icon(Icons.star,
+                                    color: Colors.amber[600], size: 15),
+                                Text(
+                                  '| 1,500 Reads',
+                                  style: textTheme.titleSmall!.copyWith(
+                                      color: Colors.black.withOpacity(.25)),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Text(
+                        '\$10.00',
+                        style: textTheme.labelMedium!
+                            .copyWith(color: Colors.orange, fontSize: 20),
                       )
                     ],
                   ),
