@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../gen/assets.gen.dart';
 
-class CategoriesScreen extends StatefulWidget {
-  const CategoriesScreen({super.key, required this.globalKey});
+class ExploreScreen extends StatefulWidget {
+  const ExploreScreen({super.key, required this.globalKey});
   final GlobalKey<ScaffoldState> globalKey;
   @override
-  State<CategoriesScreen> createState() => _CategoriesScreenState();
+  State<ExploreScreen> createState() => _ExploreScreenState();
 }
 
-class _CategoriesScreenState extends State<CategoriesScreen> {
+class _ExploreScreenState extends State<ExploreScreen> {
   final PageController _controller = PageController();
 
   int selectedIndex = 1;
@@ -174,6 +174,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               height: 40,
               child: ListView.builder(
                   itemCount: categoriesListItems.length,
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {

@@ -131,11 +131,12 @@ class MyLibraryScreen extends StatelessWidget {
                             child: ElevatedButton(
                               style: ButtonStyle(
                                   backgroundColor:
-                                      MaterialStatePropertyAll(Colors.white),
+                                      const MaterialStatePropertyAll(
+                                          Colors.white),
                                   overlayColor: MaterialStateProperty.all(
                                       Colors.black.withOpacity(.03)),
-                                  fixedSize: MaterialStatePropertyAll(
-                                      const Size(117, 153))),
+                                  fixedSize: const MaterialStatePropertyAll(
+                                      Size(117, 153))),
                               onPressed: () {},
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -156,14 +157,7 @@ class MyLibraryScreen extends StatelessWidget {
                                   )
                                 ],
                               ),
-                            )
-                            // Container(
-                            //   alignment: Alignment.center,
-                            //   height: 153,
-                            //   width: 117,
-                            //   child:
-                            // ),
-                            ),
+                            )),
                       ),
                     ],
                   )
