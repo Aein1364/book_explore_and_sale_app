@@ -2,6 +2,7 @@
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../components/MyColors.dart';
 import '../gen/assets.gen.dart';
@@ -9,8 +10,9 @@ import '../model/LibraryModel.dart';
 import '../model/WishListModel.dart';
 
 class MyLibraryScreen extends StatelessWidget {
-  const MyLibraryScreen({super.key, required this.globalKey});
+  MyLibraryScreen({super.key, required this.globalKey});
   final GlobalKey<ScaffoldState> globalKey;
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -272,7 +274,7 @@ class LibraryItem extends StatelessWidget {
   }
 }
 
-class WishListItem extends StatelessWidget {
+class WishListItem extends StatefulWidget {
   final TextTheme textTheme;
   final String title;
   final String author;
@@ -285,6 +287,12 @@ class WishListItem extends StatelessWidget {
       required this.image});
 
   @override
+  State<WishListItem> createState() => _WishListItemState();
+}
+
+class _WishListItemState extends State<WishListItem> {
+  double value = 0;
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
@@ -293,7 +301,7 @@ class WishListItem extends StatelessWidget {
           width: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            image: DecorationImage(image: image, fit: BoxFit.cover),
+            image: DecorationImage(image: widget.image, fit: BoxFit.cover),
           ),
         ),
         const SizedBox(
@@ -305,29 +313,37 @@ class WishListItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
-                style: textTheme.titleSmall,
+                widget.title,
+                style: widget.textTheme.titleSmall,
               ),
               const SizedBox(
                 height: 5,
               ),
               Text(
-                author,
-                style: textTheme.titleSmall!
+                widget.author,
+                style: widget.textTheme.titleSmall!
                     .apply(color: SolidColors.secondaryColor),
               ),
               Expanded(
-                child: Row(
-                  children: [
-                    Icon(Icons.star, color: Colors.amber[600], size: 12),
-                    Icon(Icons.star, color: Colors.amber[600], size: 12),
-                    Icon(Icons.star, color: Colors.amber[600], size: 12),
-                    Icon(Icons.star, color: Colors.amber[600], size: 12),
-                    const Icon(Icons.star,
-                        color: SolidColors.secondaryColor, size: 12),
-                  ],
-                ),
-              )
+                  child: RatingStars(
+                value: value,
+                starCount: 5,
+                starSize: 12,
+                starColor: Colors.yellow,
+                valueLabelVisibility: false,
+                starBuilder: (index, color) {
+                  return Icon(
+                    Icons.star,
+                    color: color,
+                    size: 12,
+                  );
+                },
+                onValueChanged: (v) {
+                  setState(() {
+                    value = v;
+                  });
+                },
+              ))
             ],
           ),
         )
