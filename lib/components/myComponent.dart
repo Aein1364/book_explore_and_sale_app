@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../gen/assets.gen.dart';
 import '../model/PageViewModel.dart';
 import 'MyColors.dart';
+import 'package:get/get.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
   const MyBottomNavigationBar({
