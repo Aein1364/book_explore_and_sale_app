@@ -1,5 +1,5 @@
 // ignore_for_file: file_names
-import 'package:book_explore_and_sale_app/components/widgets/ExploreWidget.dart';
+
 import 'package:book_explore_and_sale_app/components/MyColors.dart';
 import 'package:book_explore_and_sale_app/view/ReviewBookScreen.dart';
 import 'package:book_explore_and_sale_app/model/PageViewModel.dart';
